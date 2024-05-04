@@ -31,7 +31,9 @@ const Job = () => {
             <div className="grid-container">
                
                 <div class="box">1
-              
+                    <div className="button">
+                        
+              </div>
                 </div>
                 <div class="box">2</div>
                 <div class="box">3</div>

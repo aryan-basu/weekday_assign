@@ -1,3 +1,6 @@
+body{
+    background-color: #fff;
+}
 .grid-container {
     display: grid;
 
@@ -10,7 +13,10 @@
 }
 
 .box {
-    background-color: lightblue;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px;
+            border-radius: 20px;
     padding: 20px;
     text-align: center;
     max-width: 25rem;
@@ -41,4 +47,26 @@
         grid-template-columns: 1fr;
         /* 1 box per row on small screens */
     }
+}
+
+.button {
+    position: absolute;
+    /* Absolute positioning for the button */
+    bottom: 10px;
+    /* Distance from the bottom of the box */
+    left: 50%;
+    /* Position the button in the center horizontally */
+
+    /* Center the button horizontally */
+    padding: 10px;
+    height: 2rem;
+    color: white;
+        transform: translateX(-50%);
+    text-align: center;
+    width: 80%;
+        background-color: rgb(85, 239, 196);
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+            border-radius: 8px;
+                margin: 5px 0;
 }
