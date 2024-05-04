@@ -1,0 +1,36 @@
+.grid-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+     gap: 5%;
+        padding:5%;
+
+
+   
+}
+
+.box {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    max-width: 25rem;
+    min-height: 35rem;
+    overflow: hidden;
+}
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: 1fr  1fr
+        /* maximum 2 boxes per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        /* 1 box per row on small screens */
+    }
+}
