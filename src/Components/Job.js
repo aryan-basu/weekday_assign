@@ -30,9 +30,22 @@ const Job = () => {
 
             <div className="grid-container">
                
-                <div class="box">1
-                    <div className="button">
-                        
+                <div class="box">
+                    <div className="box-body">
+                        <div className="day-card">
+                            <div className="pill-wrap">
+                                <div className="day-pill">
+                                    <p>Posted 3 days ago</p>
+                                </div>
+                        </div>
+                        </div> 
+                   
+                    <div className="info-card"></div>
+                        <div className="button">
+                            <div className="button-text">
+                                <p>⚡ Easy Apply</p>
+                                </div>
+                        </div>
               </div>
                 </div>
                 <div class="box">2</div>
