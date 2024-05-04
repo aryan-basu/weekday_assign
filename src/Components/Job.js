@@ -48,15 +48,22 @@ const Job = () => {
                                     <h3>Gemini Technologies</h3>
                                     <h2>Senior engineer</h2>
                                 </div>
-                                    <p>India | Exp:5-5 years</p>
+                                    <p>India | Exp:5-5 years
+
+                                    </p>
                                 </div>
                              
                             </div>
+
+                         
                             
 
 
 
+                            <p className="expected-salary">Estimated salary 30-60LPA
 
+                                <span aria-label="Offered salary range" class=""> ✅</span>
+                            </p>
 
                     </div>
                         <div className="button">
