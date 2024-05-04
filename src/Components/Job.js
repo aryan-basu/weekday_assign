@@ -65,6 +65,25 @@ const Job = () => {
                                 <span aria-label="Offered salary range" class=""> ✅</span>
                             </p>
 
+                            <div className="about-company">
+                                <h3>About Company:</h3>
+                                <h6>About us</h6>
+                                <p>
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
+                                </p>
+                                <h6>Founder/Recruiter profiles:</h6>
+                                <p><a><span>Sidhu moosewala
+                                </span></a></p>
+
+                                <h6>About Role:</h6>
+
+                            </div>
+                            <div className="view-job"><a href="/narrative-(yc-w23)-founding-fullstack-engineer-nfx7?candidateId=U2FsdGVkX18qS8q1yZVtdME3FhHGxxs3/lgUXUs7nySId+hJNfup1OyLMimAFy92">View job</a></div>
+
                     </div>
                         <div className="button">
                             <div className="button-text">
