@@ -132,3 +132,34 @@ body{
             flex: 1 1 0%;
             padding: 8px 16px;
 }
+
+.info-card .section1-info{
+    display: flex;
+        gap: 0.5rem;
+        text-align: start;
+}
+.info-card .section1-info img{
+    width: 1.5rem;
+    height: 2.5rem;
+}
+.info-card .section1-info .sec-1-subsec-info
+{
+    margin-top: -1rem;
+}
+.info-card .section1-info .sec-1-subsec-info>h3{
+    font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 3px;
+        color: #8b8b8b;
+}
+.info-card .section1-info .sec-1-subsec-info>h2{
+font-size: 0.8rem;
+line-height: 1.5;
+font-weight: 400;
+margin-top: 0.2rem;
+}
+.info-card .section1-info p{
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+}

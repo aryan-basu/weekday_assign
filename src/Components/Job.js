@@ -40,7 +40,25 @@ const Job = () => {
                         </div>
                         </div> 
                    
-                    <div className="info-card"></div>
+                        <div className="info-card">
+                            
+                            <div className="section1-info">
+                                <img   class="MuiBox-root css-bj12qo" src="https://storage.googleapis.com/weekday-assets/airtableAttachment_1714542815382_7w5g1.jpg" alt="logo"></img>
+                                <div><div className="sec-1-subsec-info">
+                                    <h3>Gemini Technologies</h3>
+                                    <h2>Senior engineer</h2>
+                                </div>
+                                    <p>India | Exp:5-5 years</p>
+                                </div>
+                             
+                            </div>
+                            
+
+
+
+
+
+                    </div>
                         <div className="button">
                             <div className="button-text">
                                 <p>⚡ Easy Apply</p>
