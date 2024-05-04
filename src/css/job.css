@@ -16,8 +16,16 @@
     max-width: 25rem;
     min-height: 35rem;
     overflow: hidden;
-}
-
+        box-sizing: border-box;
+        /* Include padding and border in the box's total width and height */
+        transition: transform 0.2s ease;
+        /* Transition for the transform property */
+        }
+    
+           .box:hover {
+               transform: scale(1.01);
+               /* Scale up the box on hover */
+           }
 
 
 /* Media queries for responsiveness */
