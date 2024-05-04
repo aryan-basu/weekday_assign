@@ -50,6 +50,7 @@ body{
 }
 
 .button {
+    cursor: pointer;
     -webkit-box-pack: justify;
         justify-content: space-between;
         display: flex;
@@ -171,6 +172,7 @@ margin-top: 0.2rem;
     height: 15rem;
     overflow: hidden;
     margin-top: 1rem;
+        mask-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(255, 255, 255, 0));
 }
 
 .about-company h3{
