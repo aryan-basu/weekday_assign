@@ -1,22 +1,24 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import '../css/job.css';
 
 const Job = () => {
-    const [data, setData] = useState([]); // Initialize data state as an empty array
+    const [data, setData] = useState([]);
+    const pageRef=useRef(0);
+    
+    // Initialize data state as an empty array
     const [page, setPage] = useState(0); // State to track current page number
-    const countRef = useRef(0); // Ref to track count
-    const pageRef = useRef(0); // Ref to track page
+    const limit = 10; // Set the limit for each API call
 
     // Function to fetch data
     const fetchData = async () => {
         try {
-            const myHeaders = new Headers();
+            var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
-            const body = JSON.stringify({
-                "limit": 10,
-                "offset": page
+            var body = JSON.stringify({
+                "limit": limit,
+                "offset": pageRef.current * limit // Calculate the offset based on the current page and limit
             });
-            const requestOptions = {
+            var requestOptions = {
                 method: "POST",
                 headers: myHeaders,
                 body: body
@@ -25,33 +27,31 @@ const Job = () => {
             const result = await response.json();
 
             setData(prevData => [...prevData, ...result.jdList]); // Append new data to the existing data
-            if (countRef.current === 0) {
-                pageRef.current = 11;
-                setPage(prevPage => prevPage + 11); // Increment page number by 11 for the first call
-            } else {
-                pageRef.current = pageRef.current + 10;
-                setPage(prevPage => prevPage + 10); // Increment page number by 10 for subsequent calls
-            }
-            countRef.current = 1; // Update count
-            // console.log('it came', pageRef.current); // Log updated page number
+            setPage(prevPage => prevPage + 1);
+            pageRef.current = pageRef.current + 1;
+            // Increment page number
+            console.log('page is ',pageRef.current)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
-
+ 
     // Function to handle scroll events
     const handleScroll = () => {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            fetchData();
+       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+           fetchData();
         }
     };
-
+    useEffect(() => {
+        console.log('page is ', page);
+    }, [page]);
     // Add event listener for scroll events when component mounts
     useEffect(() => {
-        fetchData();
+        if (window.scrollY === 0)
+            fetchData();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll); // Cleanup function to remove event listener
-    }, []);
+    },[]);
 
     return (
         <>
