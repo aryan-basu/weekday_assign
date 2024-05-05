@@ -1,3 +1,4 @@
+// Existing imports
 import React, { useEffect, useRef, useState } from "react";
 import '../css/job.css';
 import Dropdown from "./dropdown";
@@ -100,15 +101,34 @@ const Job = () => {
     const filterData = () => {
         let filtered = [...data];
 
-        if (selectedLocation !== "") {
+        if (selectedLocation.length > 0) {
             filtered = filtered.filter(job => {
                 // Check if any of the selected locations are included in the job's location
                 return selectedLocation.some(selected => job.location.includes(selected));
             });
         }
+        console.log('filyer os ', filtered)
+ 
+        if (selectedRoles.length > 0) {
+            filtered = filtered.filter(job => {
+                // Check if any of the selected roles match the job's role
+                return selectedRoles.some(selected => job.jobRole === selected);
+            });
+        }
+
+        if (selectedTechstack.length > 0) {
+            filtered = filtered.filter(job => {
+                // Check if any of the selected techstacks match the job's techstack
+                return selectedTechstack.some(selected => job.techStack.includes(selected));
+            });
+        }
+
+        if (selectedRemote.length> 0) {
+            filtered = filtered.filter(job => job.remote === selectedRemote);
+        }
 
         // Add more conditions for other dropdowns if needed
-  console.log('filter is',filtered)
+        console.log('filyer os1 ', filtered)
         setFilteredData(filtered);
     };
 
