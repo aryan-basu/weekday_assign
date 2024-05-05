@@ -25,6 +25,9 @@ border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
 border-top: none;
     margin-top: 5px;
+    max-height: 150px;
+        /* Set the maximum height for the scrollable area */
+        overflow-y: auto;
 }
 
 .dropdown-option {
