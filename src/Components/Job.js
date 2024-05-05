@@ -10,6 +10,14 @@ const Job = () => {
     const pageRef = useRef(0);
     const limit = 10; // Set the limit for each API call
 
+    // States for selected options
+    const [selectedRoles, setSelectedRoles] = useState([]);
+    const [selectedTechstack, setSelectedTechstack] = useState([]);
+    const [selectedPay, setSelectedPay] = useState("");
+    const [selectedRemote, setSelectedRemote] = useState("");
+    const [selectedExp, setSelectedExp] = useState("");
+    const [selectedLocation, setSelectedLocation] = useState("");
+
     // Function to fetch data
     const fetchData = async () => {
         try {
@@ -53,9 +61,31 @@ const Job = () => {
     }, []);
 
     // Function to handle selected options change
-    const handleSelectedOptionsChange = (selectedOptions) => {
+    const handleSelectedOptionsChange = (option, dropdownName) => {
         // Handle the updated selected options here
-        console.log("Selected options:", selectedOptions);
+        switch (dropdownName) {
+            case "Roles":
+                setSelectedRoles(option);
+                break;
+            case "Techstack":
+                setSelectedTechstack(option);
+                break;
+            case "Minimum Base Pay":
+                setSelectedPay(option);
+                break;
+            case "Remote":
+                setSelectedRemote(option);
+                break;
+            case "Minimum Experience":
+                setSelectedExp(option);
+                break;
+            case "Location":
+                setSelectedLocation(option);
+                break;
+            default:
+                break;
+        }
+       
     };
 
     return (
@@ -71,37 +101,37 @@ const Job = () => {
                     options={["frontend", "Backend", "ios"]}
                     placeholder={"Roles"}
                     dropdownName={"Roles"}
-                    onOptionChange={handleSelectedOptionsChange}
+                    onOptionChange={(option) => handleSelectedOptionsChange(option, "Roles")}
                 />
                 <Dropdown
                     options={["frontend", "Backend", "ios", "techlead", "android"]}
                     placeholder={"Techstack"}
                     dropdownName={"Techstack"}
-                    onOptionChange={handleSelectedOptionsChange}
+                    onOptionChange={(option) => handleSelectedOptionsChange(option, "Techstack")}
                 />
                 <Dropdown
                     options={pay}
                     placeholder={"Minimum Base Salary"}
                     dropdownName={"Minimum Base Pay"}
-                    onOptionChange={handleSelectedOptionsChange}
+                    onOptionChange={(option) => handleSelectedOptionsChange(option, "Minimum Base Pay")}
                 />
                 <Dropdown
                     options={["Remote", "Hybrid", "In-office"]}
                     placeholder={"Remote"}
                     dropdownName={"Remote"}
-                    onOptionChange={handleSelectedOptionsChange}
+                    onOptionChange={(option) => handleSelectedOptionsChange(option, "Remote")}
                 />
                 <Dropdown
                     options={exp}
                     placeholder={"Minimum Experience"}
                     dropdownName={""}
-                    onOptionChange={handleSelectedOptionsChange}
+                    onOptionChange={(option) => handleSelectedOptionsChange(option, "Minimum Experience")}
                 />
                 <Dropdown
                     options={locations}
                     placeholder={"Location"}
                     dropdownName={""}
-                    onOptionChange={handleSelectedOptionsChange}
+                    onOptionChange={(option) => handleSelectedOptionsChange(option, "Location")}
                 />
 
                 <input
