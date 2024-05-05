@@ -4,9 +4,6 @@ import '../css/job.css';
 const Job = () => {
     const [data, setData] = useState([]);
     const pageRef=useRef(0);
-    
-    // Initialize data state as an empty array
-    const [page, setPage] = useState(0); // State to track current page number
     const limit = 10; // Set the limit for each API call
 
     // Function to fetch data
@@ -27,10 +24,10 @@ const Job = () => {
             const result = await response.json();
 
             setData(prevData => [...prevData, ...result.jdList]); // Append new data to the existing data
-            setPage(prevPage => prevPage + 1);
+    
             pageRef.current = pageRef.current + 1;
             // Increment page number
-            console.log('page is ',pageRef.current)
+           
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -42,9 +39,7 @@ const Job = () => {
            fetchData();
         }
     };
-    useEffect(() => {
-        console.log('page is ', page);
-    }, [page]);
+ 
     // Add event listener for scroll events when component mounts
     useEffect(() => {
         if (window.scrollY === 0)
