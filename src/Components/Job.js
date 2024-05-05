@@ -128,9 +128,18 @@ const Job = () => {
         if (selectedRemote.length> 0) {
             filtered = filtered.filter(job => job.remote === selectedRemote);
         }
+        // Filter by minimum base pay
+        if (selectedPay !== "") {
+            const numericSelectedPay = parseInt(selectedPay.replace(/\D/g, ''), 10);
+            filtered = filtered.filter(job => job.minJdSalary >= numericSelectedPay);
+        }
 
+        // Filter by minimum experience
+        if (selectedExp !== "") {
+            filtered = filtered.filter(job => job.minExp <= selectedExp);
+        }
         // Add more conditions for other dropdowns if needed
-        // console.log('filyer os1 ', filtered)
+        console.log('filyer os1 ', filtered)
         setFilteredData(filtered);
     };
 
