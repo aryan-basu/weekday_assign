@@ -4,6 +4,9 @@ import Dropdown from "./dropdown";
 import exp from "../constant/experience";
 import locations from "../constant/locations";
 import pay from "../constant/pay";
+import techstack from "../constant/techstack";
+import role from "../constant/Role";
+import remote from "../constant/remote";
 
 const Job = () => {
     const [data, setData] = useState([]);
@@ -119,13 +122,13 @@ const Job = () => {
             <div className="filter-container">
                 {/* Filters */}
                 <Dropdown
-                    options={["frontend", "Backend", "ios"]}
+                    options={role}
                     placeholder={"Roles"}
                     dropdownName={"Roles"}
                     onOptionChange={(option) => handleSelectedOptionsChange(option, "Roles")}
                 />
                 <Dropdown
-                    options={["frontend", "Backend", "ios", "techlead", "android"]}
+                    options={techstack}
                     placeholder={"Techstack"}
                     dropdownName={"Techstack"}
                     onOptionChange={(option) => handleSelectedOptionsChange(option, "Techstack")}
@@ -137,7 +140,7 @@ const Job = () => {
                     onOptionChange={(option) => handleSelectedOptionsChange(option, "Minimum Base Pay")}
                 />
                 <Dropdown
-                    options={["Remote", "Hybrid", "In-office"]}
+                    options={remote}
                     placeholder={"Remote"}
                     dropdownName={"Remote"}
                     onOptionChange={(option) => handleSelectedOptionsChange(option, "Remote")}
