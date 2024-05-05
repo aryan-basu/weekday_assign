@@ -109,26 +109,27 @@ const Job = () => {
         if (selectedLocation.length > 0) {
             filtered = filtered.filter(job => {
                 // Check if any of the selected locations are included in the job's location
-                return selectedLocation.some(selected => job.location.toLowerCase().includes(selected.toLowerCase()));
+                return selectedLocation.some(selected => job.location.includes(selected));
             });
         }
 
+        
         if (selectedRoles.length > 0) {
             filtered = filtered.filter(job => {
                 // Check if any of the selected roles match the job's role
-                return selectedRoles.some(selected => job.jobRole.toLowerCase() === selected.toLowerCase());
+                return selectedRoles.some(selected => job.jobRole === selected);
             });
         }
-
-        if (selectedTechstack.length > 0) {
-            filtered = filtered.filter(job => {
-                // Check if any of the selected techstacks match the job's techstack
-                return selectedTechstack.some(selected => job.techStack.toLowerCase().includes(selected.toLowerCase()));
-            });
-        }
+        //  add this if api has tech stack also as a prameter
+        // if (selectedTechstack.length > 0) {
+        //     filtered = filtered.filter(job => {
+        //         // Check if any of the selected techstacks match the job's techstack
+        //         return selectedTechstack.some(selected => job?.techStack.includes(selected));
+        //     });
+        // }
 
         if (selectedRemote.length > 0) {
-            filtered = filtered.filter(job => job.remote.toLowerCase() === selectedRemote.toLowerCase());
+            filtered = filtered.filter(job => job.remote === selectedRemote);
         }
 
         // Filter by minimum base pay
