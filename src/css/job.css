@@ -8,6 +8,7 @@ body{
             flex-wrap: wrap;
             align-items: flex-end;
             background-color: transparent;
+           column-gap: 1rem;
             padding: 0 20px 20px;
             background-color: #fff !important;
 }

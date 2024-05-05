@@ -59,6 +59,9 @@ const Job = () => {
                 <Dropdown
                     options={["frontend", "Backend", "ios"]} placeholder={"Roles"} dropdownName={"Roles"} // Pass options to the dropdown
                 />
+                <Dropdown
+                    options={["frontend", "Backend", "ios"]} placeholder={"Number of Employee"} dropdownName={""} // Pass options to the dropdown
+                />
             </div>
             <div className="grid-container">
                 {data.map((item, index) => (
