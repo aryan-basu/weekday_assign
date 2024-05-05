@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../css/job.css';
+import Dropdown from "./dropdown";
 
 const Job = () => {
     const [data, setData] = useState([]);
@@ -51,6 +52,10 @@ const Job = () => {
     return (
         <>
             <h1>Weekday</h1>
+
+            <Dropdown
+                options={["frontend", "Backend", "ios"]} // Pass options to the dropdown
+            />
             <div className="filter-container">
                 {/* Filters */}
             </div>
