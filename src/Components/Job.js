@@ -53,11 +53,12 @@ const Job = () => {
         <>
             <h1>Weekday</h1>
 
-            <Dropdown
-                options={["frontend", "Backend", "ios"]} // Pass options to the dropdown
-            />
+          
             <div className="filter-container">
                 {/* Filters */}
+                <Dropdown
+                    options={["frontend", "Backend", "ios"]} // Pass options to the dropdown
+                />
             </div>
             <div className="grid-container">
                 {data.map((item, index) => (

@@ -18,6 +18,8 @@ const Dropdown = ({ options }) => {
     const unselectedOptions = options.filter((option) => !selectedOptions.includes(option));
 
     return (
+        <div className="dropdown-name">
+            <p>Roles</p>
         <div className="dropdown">
             <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
                 {selectedOptions.map((option) => (
@@ -57,7 +59,8 @@ const Dropdown = ({ options }) => {
                     ))}
                 </div>
             )}
-        </div>
+            </div>
+            </div>
     );
 };
 

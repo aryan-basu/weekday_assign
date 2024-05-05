@@ -113,3 +113,7 @@ color: rgb(153, 153, 153) !important;
 fill: rgb(153, 153, 153);
     stroke: rgb(153, 153, 153);
 }
+.dropdown-name{
+        display: flex;
+            flex-direction: column;
+}
