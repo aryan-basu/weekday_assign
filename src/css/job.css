@@ -22,8 +22,8 @@ body{
     display: grid;
 
     grid-template-columns: 1fr 1fr 1fr;
-     gap: 5%;
-        padding:5%;
+     gap: 1%;
+        padding:1%;
 
 
    
