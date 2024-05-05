@@ -60,7 +60,19 @@ const Job = () => {
                     options={["frontend", "Backend", "ios"]} placeholder={"Roles"} dropdownName={"Roles"} // Pass options to the dropdown
                 />
                 <Dropdown
-                    options={["frontend", "Backend", "ios"]} placeholder={"Number of Employee"} dropdownName={""} // Pass options to the dropdown
+                    options={["frontend", "Backend", "ios"]} placeholder={"Techstack"} dropdownName={""} // Pass options to the dropdown
+                />
+                <Dropdown
+                    options={["frontend", "Backend", "ios"]} placeholder={"Minimum Base Salary"} dropdownName={"Minimum Base Pay"} // Pass options to the dropdown
+                />
+                <Dropdown
+                    options={["Remote", "Hybrid", "In-office"]} placeholder={"Remote"} dropdownName={"Remote"} // Pass options to the dropdown
+                />
+                <Dropdown
+                    options={["Remote", "Hybrid", "In-office"]} placeholder={"Minimum Experience"} dropdownName={""} // Pass options to the dropdown
+                />
+                <Dropdown
+                    options={["Remote", "Hybrid", "In-office"]} placeholder={"Location"} dropdownName={""} // Pass options to the dropdown
                 />
             </div>
             <div className="grid-container">
