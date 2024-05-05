@@ -226,7 +226,7 @@ const Job = () => {
                                         <p>{item.location} | Exp: {item.minExp}-{item.maxExp} years</p>
                                     </div>
                                 </div>
-                                <p className="expected-salary">Estimated salary {item.minJdSalary}k-{item.maxJdSalary}k {item.salaryCurrencyCode}</p>
+                                {item.minJdSalary === null && item.maxJdSalary == null ? '' : <p className="expected-salary">Estimated salary{item.minJdSalary === null ? '' : ` ${item.minJdSalary}k-`} { item.maxJdSalary===null?'':`${item.maxJdSalary}k `}{item.salaryCurrencyCode}</p>}
                                 <div className="about-company">
                                     <h3>About Company:</h3>
                                     <h6>About us</h6>
