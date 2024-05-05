@@ -8,6 +8,7 @@ import pay from "../constant/pay";
 import techstack from "../constant/techstack";
 import role from "../constant/Role";
 import remote from "../constant/remote";
+import DropdownOne from "./dropdownone";
 
 const Job = () => {
     const [data, setData] = useState([]);
@@ -95,6 +96,7 @@ const Job = () => {
             default:
                 break;
         }
+        // console.log('sel', selectedExp, selectedPay,selectedLocation)
     };
 
     // Function to filter data based on selected options
@@ -107,7 +109,7 @@ const Job = () => {
                 return selectedLocation.some(selected => job.location.includes(selected));
             });
         }
-        console.log('filyer os ', filtered)
+        // console.log('filyer os ', filtered)
  
         if (selectedRoles.length > 0) {
             filtered = filtered.filter(job => {
@@ -128,7 +130,7 @@ const Job = () => {
         }
 
         // Add more conditions for other dropdowns if needed
-        console.log('filyer os1 ', filtered)
+        // console.log('filyer os1 ', filtered)
         setFilteredData(filtered);
     };
 
@@ -153,7 +155,7 @@ const Job = () => {
                     dropdownName={"Techstack"}
                     onOptionChange={(option) => handleSelectedOptionsChange(option, "Techstack")}
                 />
-                <Dropdown
+                <DropdownOne
                     options={pay}
                     placeholder={"Minimum Base Salary"}
                     dropdownName={"Minimum Base Pay"}
@@ -165,7 +167,7 @@ const Job = () => {
                     dropdownName={"Remote"}
                     onOptionChange={(option) => handleSelectedOptionsChange(option, "Remote")}
                 />
-                <Dropdown
+                <DropdownOne
                     options={exp}
                     placeholder={"Minimum Experience"}
                     dropdownName={""}
