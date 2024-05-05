@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import '../css/job.css'
 const Job = () => {
+
+    const [data, Setdata] = useState(null);
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     const body = JSON.stringify({
         "limit": 10,
-        "offset": 0
+        "offset": 1
     });
 
     const requestOptions = {
@@ -18,6 +21,7 @@ const Job = () => {
             .then((response) => response.json()) // Assuming the response is JSON
             .then((result) => {
                 console.log("API Response:", result.jdList); // Log the API response
+                Setdata(result.jdList);
               // Log the jdList
             })
             .catch((error) => console.error(error));
@@ -30,20 +34,88 @@ const Job = () => {
 
             <div className="grid-container">
                
-                <div class="box">
+               
+                
+                {data?data.map((item, index) => {
+                    return (
+                        <div className="box">
+                            <div className="box-body">
+                                <div className="day-card">
+                                    <div className="pill-wrap">
+                                        <div className="day-pill">
+                                            <p>Posted 3 days ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="info-card">
+
+                                    <div className="section1-info">
+                                        <img class="MuiBox-root css-bj12qo" src={item.logoUrl
+} alt="logo"></img>
+                                        <div><div className="sec-1-subsec-info">
+                                            <h3>{item.companyName}</h3>
+                                            <h2>{item.jobRole}</h2>
+                                        </div>
+                                            <p>{item.location} | Exp: &nbsp;{item.minExp}-{item.maxExp}  &nbsp;
+ years
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+
+                                    <p className="expected-salary">Estimated salary {item.minJdSalary
+                                    }k-{item.maxJdSalary}k {item.salaryCurrencyCode
+}
+
+                                        <span aria-label="Offered salary range" class=""> ✅</span>
+                                    </p>
+
+                                    <div className="about-company">
+                                        <h3>About Company:</h3>
+                                        <h6>About us</h6>
+                                        <p>
+                                            {item.jobDetailsFromCompany}
+                                        </p>
+                                        <h6>Founder/Recruiter profiles:</h6>
+                                        <p><a><span>Sidhu moosewala
+                                        </span></a></p>
+
+                                        <h6>About Role:</h6>
+
+                                    </div>
+                                    <div className="view-job"><a href={item.jdLink
+}>View job</a></div>
+
+                                </div>
+                                <div className="button">
+                                    <div className="button-text">
+                                        <p>⚡ Easy Apply</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                  )  
+                }) : <div class="box">
                     <div className="box-body">
                         <div className="day-card">
                             <div className="pill-wrap">
                                 <div className="day-pill">
                                     <p>Posted 3 days ago</p>
                                 </div>
+                            </div>
                         </div>
-                        </div> 
-                   
+
                         <div className="info-card">
-                            
+
                             <div className="section1-info">
-                                <img   class="MuiBox-root css-bj12qo" src="https://storage.googleapis.com/weekday-assets/airtableAttachment_1714542815382_7w5g1.jpg" alt="logo"></img>
+                                <img class="MuiBox-root css-bj12qo" src="https://storage.googleapis.com/weekday-assets/airtableAttachment_1714542815382_7w5g1.jpg" alt="logo"></img>
                                 <div><div className="sec-1-subsec-info">
                                     <h3>Gemini Technologies</h3>
                                     <h2>Senior engineer</h2>
@@ -52,11 +124,11 @@ const Job = () => {
 
                                     </p>
                                 </div>
-                             
+
                             </div>
 
-                         
-                            
+
+
 
 
 
@@ -69,11 +141,11 @@ const Job = () => {
                                 <h3>About Company:</h3>
                                 <h6>About us</h6>
                                 <p>
-                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
-                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
-                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
-                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
-                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue. 
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.
+                                    Flex Wash is an operating system for the car wash industry. Our solutions help owners manage their operations and grow revenue.
                                 </p>
                                 <h6>Founder/Recruiter profiles:</h6>
                                 <p><a><span>Sidhu moosewala
@@ -84,23 +156,17 @@ const Job = () => {
                             </div>
                             <div className="view-job"><a href="/narrative-(yc-w23)-founding-fullstack-engineer-nfx7?candidateId=U2FsdGVkX18qS8q1yZVtdME3FhHGxxs3/lgUXUs7nySId+hJNfup1OyLMimAFy92">View job</a></div>
 
-                    </div>
+                        </div>
                         <div className="button">
                             <div className="button-text">
                                 <p>⚡ Easy Apply</p>
-                                </div>
+                            </div>
                         </div>
-              </div>
-                </div>
-                <div class="box">2</div>
-                <div class="box">3</div>
-                <div class="box">4</div>
-                <div class="box">5</div>
-                <div class="box">6</div>
-                <div class="box">7</div>
-                <div class="box">8</div>
-                <div class="box">9</div>
-                <div class="box">10</div>
+                    </div>
+                </div>}
+           
+
+              
             </div>
         </>
     )

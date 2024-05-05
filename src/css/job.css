@@ -200,7 +200,7 @@ margin-top: 0.2rem;
 .about-company a{
     color: #4943da;
         font-size: 0.8rem;
-        text-decoration: none;
+        text-decoration: none !important;
         font-weight: 600;
 }
 .view-job{
@@ -208,4 +208,10 @@ margin-top: 0.2rem;
             margin-bottom: 0.5rem;
             position: relative;
             top: -2rem;
+}
+.view-job a{
+    color: #4943da;
+        font-size: 0.8rem;
+        text-decoration: none !important;
+        font-weight: 600;
 }
