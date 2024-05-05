@@ -57,7 +57,7 @@ const Job = () => {
             <div className="filter-container">
                 {/* Filters */}
                 <Dropdown
-                    options={["frontend", "Backend", "ios"]} // Pass options to the dropdown
+                    options={["frontend", "Backend", "ios"]} placeholder={"Roles"} dropdownName={"Roles"} // Pass options to the dropdown
                 />
             </div>
             <div className="grid-container">

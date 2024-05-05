@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/dropdown.css";
 
-const Dropdown = ({ options }) => {
+const Dropdown = ({ options, placeholder, dropdownName }) => {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const Dropdown = ({ options }) => {
 
     return (
         <div className="dropdown-name">
-            <p>Roles</p>
+            <p>{ dropdownName}</p>
         <div className="dropdown">
             <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
                 {selectedOptions.map((option) => (
@@ -30,7 +30,7 @@ const Dropdown = ({ options }) => {
                 <input
                     type="text"
                     className="selected-options"
-                    placeholder={selectedOptions.length === 0 ? "Select an option" : ""}
+                    placeholder={selectedOptions.length === 0 ? placeholder : ""}
                     readOnly
 
 
