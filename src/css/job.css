@@ -1,6 +1,23 @@
 body{
     background-color: #fff;
 }
+
+.filter-container{
+        display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            background-color: transparent;
+            padding: 0 20px 20px;
+            background-color: #fff !important;
+}
+.filter-child
+{
+    display: flex;
+        flex-direction: column;
+        margin: 2px 5px 2px 0 !important;
+}
+
 .grid-container {
     display: grid;
 

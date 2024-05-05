@@ -32,6 +32,27 @@ const Job = () => {
         <>
         <h1>Weekday</h1>
 
+            <div className="filter-container">
+                <div className="filter-child">
+
+                </div>
+                <div className="filter-child">
+
+                </div>
+                <div className="filter-child">
+
+                </div>
+                <div className="filter-child">
+
+                </div>
+                <div className="filter-child">
+
+                </div>
+                <div className="filter-child">
+
+                </div>
+            </div>
+
             <div className="grid-container">
                
                
