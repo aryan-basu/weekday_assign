@@ -74,6 +74,15 @@ const Job = () => {
                 <Dropdown
                     options={["Remote", "Hybrid", "In-office"]} placeholder={"Location"} dropdownName={""} // Pass options to the dropdown
                 />
+              
+                <input
+                    type="text"
+                    className="company"
+                    placeholder={'Company Name'}
+                
+
+
+                />
             </div>
             <div className="grid-container">
                 {data.map((item, index) => (

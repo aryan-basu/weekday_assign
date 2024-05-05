@@ -117,3 +117,14 @@ fill: rgb(153, 153, 153);
         display: flex;
             flex-direction: column;
 }
+
+.company
+    {
+            border: 1px solid #ccc;
+            padding: 0.7rem;
+            /* cursor: pointer; */
+            display: flex;
+            width: 14.7rem;
+            margin-top: 2rem;
+            position: relative;
+        }
