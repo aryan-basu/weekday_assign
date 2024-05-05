@@ -4,9 +4,10 @@ import Dropdown from "./dropdown";
 import exp from "../constant/experience";
 import locations from "../constant/locations";
 import pay from "../constant/pay";
+
 const Job = () => {
     const [data, setData] = useState([]);
-    const pageRef=useRef(0);
+    const pageRef = useRef(0);
     const limit = 10; // Set the limit for each API call
 
     // Function to fetch data
@@ -27,67 +28,86 @@ const Job = () => {
             const result = await response.json();
 
             setData(prevData => [...prevData, ...result.jdList]); // Append new data to the existing data
-    
+
             pageRef.current = pageRef.current + 1;
             // Increment page number
-           
+
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
- 
+
     // Function to handle scroll events
     const handleScroll = () => {
-       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-           fetchData();
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            fetchData();
         }
     };
- 
+
     // Add event listener for scroll events when component mounts
     useEffect(() => {
         if (window.scrollY === 0)
             fetchData();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll); // Cleanup function to remove event listener
-    },[]);
+    }, []);
+
+    // Function to handle selected options change
+    const handleSelectedOptionsChange = (selectedOptions) => {
+        // Handle the updated selected options here
+        console.log("Selected options:", selectedOptions);
+    };
 
     return (
         <>
             <div className="page-header">
                 <span>  <img class="MuiBox-root css-6sxfzj" src="https://jobs.weekday.works/_next/static/media/logo-small.08826abd.png"></img></span>
                 <h1>Weekday</h1>
-                
-                </div>
+            </div>
 
-          
             <div className="filter-container">
                 {/* Filters */}
                 <Dropdown
-                    options={["frontend", "Backend", "ios"]} placeholder={"Roles"} dropdownName={"Roles"} // Pass options to the dropdown
+                    options={["frontend", "Backend", "ios"]}
+                    placeholder={"Roles"}
+                    dropdownName={"Roles"}
+                    onOptionChange={handleSelectedOptionsChange}
                 />
                 <Dropdown
-                    options={["frontend", "Backend", "ios","techlead","android"]} placeholder={"Techstack"} dropdownName={""} // Pass options to the dropdown
+                    options={["frontend", "Backend", "ios", "techlead", "android"]}
+                    placeholder={"Techstack"}
+                    dropdownName={"Techstack"}
+                    onOptionChange={handleSelectedOptionsChange}
                 />
                 <Dropdown
-                    options={pay} placeholder={"Minimum Base Salary"} dropdownName={"Minimum Base Pay"} // Pass options to the dropdown
+                    options={pay}
+                    placeholder={"Minimum Base Salary"}
+                    dropdownName={"Minimum Base Pay"}
+                    onOptionChange={handleSelectedOptionsChange}
                 />
                 <Dropdown
-                    options={["Remote", "Hybrid", "In-office"]} placeholder={"Remote"} dropdownName={"Remote"} // Pass options to the dropdown
+                    options={["Remote", "Hybrid", "In-office"]}
+                    placeholder={"Remote"}
+                    dropdownName={"Remote"}
+                    onOptionChange={handleSelectedOptionsChange}
                 />
                 <Dropdown
-                    options={exp} placeholder={"Minimum Experience"} dropdownName={""} // Pass options to the dropdown
+                    options={exp}
+                    placeholder={"Minimum Experience"}
+                    dropdownName={""}
+                    onOptionChange={handleSelectedOptionsChange}
                 />
                 <Dropdown
-                    options={locations} placeholder={"Location"} dropdownName={""} // Pass options to the dropdown
+                    options={locations}
+                    placeholder={"Location"}
+                    dropdownName={""}
+                    onOptionChange={handleSelectedOptionsChange}
                 />
-              
+
                 <input
                     type="text"
                     className="company"
                     placeholder={'Company Name'}
-                
-
-
                 />
             </div>
             <div className="grid-container">
