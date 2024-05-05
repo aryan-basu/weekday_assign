@@ -51,7 +51,11 @@ const Job = () => {
 
     return (
         <>
-            <h1>Weekday</h1>
+            <div className="page-header">
+                <span>  <img class="MuiBox-root css-6sxfzj" src="https://jobs.weekday.works/_next/static/media/logo-small.08826abd.png"></img></span>
+                <h1>Weekday</h1>
+                
+                </div>
 
           
             <div className="filter-container">

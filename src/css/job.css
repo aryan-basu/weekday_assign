@@ -1,7 +1,24 @@
 body{
     background-color: #fff;
 }
-
+.page-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-header span{
+   position: relative;
+}
+.page-header img{
+position: absolute;
+    width:2.5rem;
+    height: 2.5rem;
+  margin-right: 0.5rem;
+    top: 50%;
+right:5%;
+        /* Move the image down by 50% of its container's height */
+        transform: translateY(-50%)
+}
 .filter-container{
         display: flex;
             flex-direction: row;
