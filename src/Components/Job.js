@@ -7,6 +7,7 @@ import pay from "../constant/pay";
 
 const Job = () => {
     const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
     const pageRef = useRef(0);
     const limit = 10; // Set the limit for each API call
 
@@ -60,6 +61,11 @@ const Job = () => {
         return () => window.removeEventListener('scroll', handleScroll); // Cleanup function to remove event listener
     }, []);
 
+    // Function to filter data based on selected options
+    useEffect(() => {
+        filterData();
+    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation]);
+
     // Function to handle selected options change
     const handleSelectedOptionsChange = (option, dropdownName) => {
         // Handle the updated selected options here
@@ -85,13 +91,28 @@ const Job = () => {
             default:
                 break;
         }
-       
+    };
+
+    // Function to filter data based on selected options
+    const filterData = () => {
+        let filtered = [...data];
+
+        if (selectedLocation !== "") {
+            filtered = filtered.filter(job => {
+                // Check if any of the selected locations are included in the job's location
+                return selectedLocation.some(selected => job.location.includes(selected));
+            });
+        }
+
+        // Add more conditions for other dropdowns if needed
+  console.log('filter is',filtered)
+        setFilteredData(filtered);
     };
 
     return (
         <>
             <div className="page-header">
-                <span>  <img class="MuiBox-root css-6sxfzj" src="https://jobs.weekday.works/_next/static/media/logo-small.08826abd.png"></img></span>
+                <span>  <img className="MuiBox-root css-6sxfzj" src="https://jobs.weekday.works/_next/static/media/logo-small.08826abd.png" alt="logo"></img></span>
                 <h1>Weekday</h1>
             </div>
 
@@ -141,7 +162,7 @@ const Job = () => {
                 />
             </div>
             <div className="grid-container">
-                {data.map((item, index) => (
+                {filteredData.map((item, index) => (
                     <div className="box" key={index}>
                         <div className="box-body">
                             <div className="day-card">
