@@ -70,7 +70,10 @@ input {
         flex-shrink: 0;
         box-sizing: border-box;
 }
-
+.dropdown-icon svg {
+    fill: rgb(204, 204, 204);
+    stroke: rgb(204, 204, 204);
+}
 .dropdown-icon .line{
     align-self: stretch;
         width: 1px;
@@ -86,4 +89,27 @@ input {
         color: rgb(204, 204, 204);
         padding: 8px;
         box-sizing: border-box;
+}
+.dropdown-icon  .down-arrow:hover  {
+color: rgb(153, 153, 153) !important;
+        fill: rgb(153, 153, 153) !important;
+        stroke: rgb(153, 153, 153) !important;
+    
+}
+.dropdown-icon .cross-arrow{
+    display: flex;
+        transition: color 150ms ease 0s;
+        color: rgb(204, 204, 204);
+        padding: 8px;
+        box-sizing: border-box;
+}
+
+.dropdown-icon .cross-arrow :hover{
+        color: rgb(153, 153, 153);
+}
+
+
+.dropdown-icon .cross-arrow :hover {
+fill: rgb(153, 153, 153);
+    stroke: rgb(153, 153, 153);
 }
