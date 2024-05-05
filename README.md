@@ -12,3 +12,4 @@ You may also see any lint errors in the console.
 
 
 ## mockup
+![Design](https://github.com/aryan-basu/weekday_assign/blob/master/mockup-images/home_screen.png)
