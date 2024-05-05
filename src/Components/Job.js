@@ -23,7 +23,7 @@ const Job = () => {
     const [selectedRemote, setSelectedRemote] = useState("");
     const [selectedExp, setSelectedExp] = useState("");
     const [selectedLocation, setSelectedLocation] = useState("");
-
+    const [companyname, setCompanyName] = useState("");
     // Function to fetch data
     const fetchData = async () => {
         try {
@@ -69,7 +69,7 @@ const Job = () => {
     // Function to filter data based on selected options
     useEffect(() => {
         filterData();
-    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation]);
+    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation,companyname]);
 
     // Function to handle selected options change
     const handleSelectedOptionsChange = (option, dropdownName) => {
@@ -138,6 +138,9 @@ const Job = () => {
         if (selectedExp !== "") {
             filtered = filtered.filter(job => job.minExp <= selectedExp);
         }
+        if (companyname !== "") {
+            filtered = filtered.filter(job => job.companyName.toLowerCase().includes(companyname));
+        }
         // Add more conditions for other dropdowns if needed
         console.log('filyer os1 ', filtered)
         setFilteredData(filtered);
@@ -193,6 +196,7 @@ const Job = () => {
                     type="text"
                     className="company"
                     placeholder={'Company Name'}
+                    onChange={(e) => setCompanyName(e.target.value.toLowerCase())}
                 />
             </div>
             <div className="grid-container">
