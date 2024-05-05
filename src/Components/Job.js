@@ -1,4 +1,3 @@
-// Existing imports
 import React, { useEffect, useRef, useState } from "react";
 import '../css/job.css';
 import Dropdown from "./dropdown";
@@ -24,10 +23,10 @@ const Job = () => {
     const [selectedExp, setSelectedExp] = useState("");
     const [selectedLocation, setSelectedLocation] = useState("");
     const [companyname, setCompanyName] = useState("");
+
     // Function to fetch data
     const fetchData = async () => {
         try {
-            console.log('it came')
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             var body = JSON.stringify({
@@ -43,8 +42,8 @@ const Job = () => {
             const result = await response.json();
 
             setData(prevData => [...prevData, ...result.jdList]); // Append new data to the existing data
-            pageRef.current = pageRef.current + 1;
-            // Increment page number
+
+            pageRef.current = pageRef.current + 1; // Increment page number
 
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -53,7 +52,12 @@ const Job = () => {
 
     // Function to handle scroll events
     const handleScroll = () => {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+        const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+        const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+        if (scrolledToBottom) {
             fetchData();
         }
     };
@@ -69,7 +73,7 @@ const Job = () => {
     // Function to filter data based on selected options
     useEffect(() => {
         filterData();
-    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation,companyname,data]);
+    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation, companyname,data]);
 
     // Function to handle selected options change
     const handleSelectedOptionsChange = (option, dropdownName) => {
@@ -96,7 +100,6 @@ const Job = () => {
             default:
                 break;
         }
-        // console.log('sel', selectedExp, selectedPay,selectedLocation)
     };
 
     // Function to filter data based on selected options
@@ -106,28 +109,28 @@ const Job = () => {
         if (selectedLocation.length > 0) {
             filtered = filtered.filter(job => {
                 // Check if any of the selected locations are included in the job's location
-                return selectedLocation.some(selected => job.location.includes(selected));
+                return selectedLocation.some(selected => job.location.toLowerCase().includes(selected.toLowerCase()));
             });
         }
-        // console.log('filyer os ', filtered)
- 
+
         if (selectedRoles.length > 0) {
             filtered = filtered.filter(job => {
                 // Check if any of the selected roles match the job's role
-                return selectedRoles.some(selected => job.jobRole === selected);
+                return selectedRoles.some(selected => job.jobRole.toLowerCase() === selected.toLowerCase());
             });
         }
 
         if (selectedTechstack.length > 0) {
             filtered = filtered.filter(job => {
                 // Check if any of the selected techstacks match the job's techstack
-                return selectedTechstack.some(selected => job.techStack.includes(selected));
+                return selectedTechstack.some(selected => job.techStack.toLowerCase().includes(selected.toLowerCase()));
             });
         }
 
-        if (selectedRemote.length> 0) {
-            filtered = filtered.filter(job => job.remote === selectedRemote);
+        if (selectedRemote.length > 0) {
+            filtered = filtered.filter(job => job.remote.toLowerCase() === selectedRemote.toLowerCase());
         }
+
         // Filter by minimum base pay
         if (selectedPay !== "") {
             const numericSelectedPay = parseInt(selectedPay.replace(/\D/g, ''), 10);
@@ -138,11 +141,12 @@ const Job = () => {
         if (selectedExp !== "") {
             filtered = filtered.filter(job => job.minExp <= selectedExp);
         }
+
+        // Filter by company name
         if (companyname !== "") {
-            filtered = filtered.filter(job => job.companyName.toLowerCase().includes(companyname));
+            filtered = filtered.filter(job => job.companyName.toLowerCase().includes(companyname.toLowerCase()));
         }
-        // Add more conditions for other dropdowns if needed
-        console.log('filyer os1 ', filtered)
+
         setFilteredData(filtered);
     };
 
