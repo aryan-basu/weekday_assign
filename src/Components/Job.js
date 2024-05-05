@@ -27,6 +27,7 @@ const Job = () => {
     // Function to fetch data
     const fetchData = async () => {
         try {
+            console.log('it came')
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             var body = JSON.stringify({
@@ -42,7 +43,6 @@ const Job = () => {
             const result = await response.json();
 
             setData(prevData => [...prevData, ...result.jdList]); // Append new data to the existing data
-
             pageRef.current = pageRef.current + 1;
             // Increment page number
 
@@ -69,7 +69,7 @@ const Job = () => {
     // Function to filter data based on selected options
     useEffect(() => {
         filterData();
-    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation,companyname]);
+    }, [selectedRoles, selectedTechstack, selectedPay, selectedRemote, selectedExp, selectedLocation,companyname,data]);
 
     // Function to handle selected options change
     const handleSelectedOptionsChange = (option, dropdownName) => {
